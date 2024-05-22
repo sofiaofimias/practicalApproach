@@ -1,0 +1,49 @@
+{% assign a = content.artists[0] %}
+{% if a.intFormedYear < 2000 %}
+  {% assign isOldBand = true %}
+{% else %}
+  {% assign isOldBand = false %}
+{% endif %}
+{ 
+"artists":[{% for a in content.artists %}
+  {
+  "idArtist": "{{ a.idArtist }}",
+  "strArtist": "{{ a.strArtist }}",
+  "strArtistStripped": "{{ a.strArtistStripped }}",
+  "strArtistAlternate": "{{ a.strArtistAlternate }}",
+  "strLabel": "{{ a..strLabel }}",
+  "idLabel": "{{ a.idLabel }}",
+  "intFormedYear": "{{ a.intFormedYear }}",
+  "intBornYear": "{{ a.intBornYear }}",
+  "intDiedYear": "{{ a.intDiedYear }}",
+  "strStyle": "{{ a.strStyle }}",
+  "strGenre": "{{ a.strGenre }}",
+  "strMood": "{{ a.strMood }}",
+  "strWebsite": "{{ a.strWebsite }}",
+  "strFacebook": "{{ a.strFacebook }}",
+  "strTwitter": "{{ a.strTwitter }}",
+  "strBiographyEN": "{{ a.strBiographyEN | Truncate: 50 }}",
+  "strGender": "{{ a.strGender }}",
+  "intMembers": "{{ a.intMembers }}",
+  "strCountry": "{{ a.strCountry | Append: ' - ' | Append: a.strCountryCode }}",
+  "strArtistThumb": "{{ a.strArtist }}",
+  "strArtistLogo": "{{ a.strArtistLogo }}",
+  "strArtistCutout": "{{ a.strArtistClearart }}",
+  "strArtistClearart": "{{ a.strArtistClearart }}",
+  "strArtistWideThumb": "{{ a.strArtistWideThumb }}",
+  "strArtistFanart": "{{ a.strArtistFanart }}",
+  "strArtistFanart2": "{{ a.strArtistFanart2 }}",
+  "strArtistFanart3": "{{ a.strArtistFanart3 }}",
+  "strArtistFanart4": "{{ a.strArtistFanart4 }}",
+  "strArtistBanner": "{{ a.strArtistBanner }}",
+  "strMusicBrainzID": "{{ a.strMusicBrainzID }}",
+  "strISNIcode": null,
+        "strLastFMChart": "{{ a.strLastFMChart }}",
+  "intCharted": "{{ a.intCharted }}",
+  "strLocked": "{{ a.strLocked }}",
+  "isOldBand": {{ isOldBand }}
+  },
+  ],
+                        "id": "{{ a.idArtist }}"
+{% endfor %}
+}
